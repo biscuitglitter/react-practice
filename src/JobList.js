@@ -1,23 +1,25 @@
 import React from "react";
-import ToDo from "./ToDo";
+import Job from "./Job";
 
-const ToDoList = ({ toDoList, handleToggle, handleFilter }) => {
+const JobList = ({ jobList, handleToggle, handleFilter }) => {
   return (
     <div>
-      {toDoList.map((todo) => {
+      {jobList.map((job) => {
         return (
-          <ToDo
-            todo={todo}
+          <Job
+            job={job}
+            key={job.id}
             handleToggle={handleToggle}
             handleFilter={handleFilter}
           />
         );
       })}
       <button style={{ margin: "20px" }} onClick={handleFilter}>
-        Clear Completed
+        {" "}
+        only liked{" "}
       </button>
     </div>
   );
 };
 
-export default ToDoList;
+export default JobList;
