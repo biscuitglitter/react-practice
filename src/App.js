@@ -2,56 +2,53 @@ import React, { useState } from "react";
 // mock data
 import data from "./data.json";
 import Header from "./Header";
-import ToDoList from "./ToDoList";
-import ToDoForm from "./ToDoForm";
+import JobList from "./JobList";
+import JobForm from "./JobForm";
 
 function App() {
-  const [toDoList, setToDoList] = useState(data);
-
+  const [jobListVariable, setJobList] = useState(data);
   // toDoList is the variable that will hold our state
   // our state here is data which is the array that holds the data (todo) objects
 
   const handleToggle = (id) => {
-    let mappedList = toDoList.map((task) => {
-      return task.id === Number(id)
-        ? { ...task, complete: !task.complete }
-        : { ...task };
+    let mappedList = jobListVariable.map((job) => {
+      return job.id === Number(id) ? { ...job, like: !job.like } : { ...job };
     });
-    setToDoList(mappedList);
+    setJobList(mappedList);
   };
 
-  const handleFilterCompleted = () => {
-    let filterCompletedTasks = toDoList.filter((task) => {
-      return !task.complete;
+  const handleFilter = () => {
+    let likedJobs = jobListVariable.filter((job) => {
+      return job.like === true;
     });
-    setToDoList(filterCompletedTasks);
+    console.log(likedJobs);
+    setJobList(likedJobs);
   };
 
-  // settodolist was used twice because is it a method that allows me
+  // setJobList was used twice because is it a method that allows me
   // to update/work with the data that is being held by the variable
 
-  const addTask = (userInput) => {
-    //
-    let copy = [...toDoList];
+  const addJob = (userInput) => {
+    let copy = [...jobListVariable];
     copy = [
       ...copy,
-      { id: toDoList.length + 1, task: userInput, complete: false }
+      { id: jobListVariable.length + 1, jobtitle: userInput, like: false }
     ];
-    setToDoList(copy);
+    setJobList(copy);
   };
 
-  // in the return we have the ToDoList component that holds the toDoList variable that holds the todos which is datajson
-  // toDoList = variable, ToDoList = component that renders the stuff, data = todos as json objects
+  // in the return we have the JobList component that holds the jobList variable that holds the jobs which is datajson
+  // jobListVariable = variable, JobList = component that renders the stuff, data = jobs as json objects
 
   return (
     <div className="App">
       <Header />
-      <ToDoList
-        toDoList={toDoList}
+      <JobList
+        jobList={jobListVariable}
         handleToggle={handleToggle}
-        handleFilter={handleFilterCompleted}
+        filterLiked={handleFilter}
       />
-      <ToDoForm addTask={addTask} />
+      <JobForm addJob={addJob} />
     </div>
   );
 }
