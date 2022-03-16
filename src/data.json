@@ -1,16 +1,38 @@
 [
   {
-    "jobtitle": "software engineer",
-    "company": "molali",
-    "description": "good times",
-    "like": true,
-    "id": 1
+    "id": 1,
+    "jobtitle": "Sportsperson",
+    "location": "London",
+    "liked": false
   },
   {
-    "jobtitle": "react developer",
-    "company": "keperli",
-    "description": "moderate times",
-    "like": false,
-    "id": 2
+    "id": 2,
+    "jobtitle": "Lifeguard",
+    "location": "Algiers",
+    "liked": true
+  },
+  {
+    "id": 3,
+    "jobtitle": "Make-up artist",
+    "location": "Paris",
+    "liked": true
+  },
+  {
+    "id": 4,
+    "jobtitle": "Art critic",
+    "location": "Algiers",
+    "liked": false
+  },
+  {
+    "id": 5,
+    "jobtitle": "Illustrator",
+    "location": "Berlin",
+    "liked": false
+  },
+  {
+    "id": 6,
+    "jobtitle": "Sailor",
+    "location": "Maldives",
+    "liked": true
   }
 ]
